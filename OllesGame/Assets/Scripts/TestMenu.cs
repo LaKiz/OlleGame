@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class TestMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // used to ensure that the launch screen isn't more than once per play session if the project reloads the main scene
+    //private static bool alreadyShownThisSession = false;
+    //private GameManager gameScript;
+    private BoardManager boardScript;
+    void Awake()
     {
-        
+
+        /*:
+        // have we already shown this once?
+        if (alreadyShownThisSession)
+        {
+            StartGame();
+        }
+        else
+        {
+            alreadyShownThisSession = true;
+
+        }*/
+        boardScript = GetComponent<BoardManager>();
+
+        InitGame();
+        //gameScript = GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    /*public void StartGame()
     {
-        
-    }
+        //gameScript = GetComponent<GameManager>();
+        Time.timeScale = 1f;
+    }*/
+
+
 }
+
+
