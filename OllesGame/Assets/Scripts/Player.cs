@@ -220,7 +220,7 @@ namespace Completed
 				other.gameObject.SetActive (false);
 			}
 
-            sparkle.GetComponent<ParticleSystem>().enableEmission = true;
+            sparkle.GetComponent<ParticleSystem>() .enableEmission = true;
             StartCoroutine(stopSparkles());
         }
 		
@@ -228,7 +228,7 @@ namespace Completed
 
         {
             yield return new WaitForSeconds(.4f);
-            sparkle.GetComponent<ParticleSystem>().enableEmission = false;
+            sparkle.GetComponent<ParticleSystem>() .enableEmission = false;
         }
 		
 		//Restart reloads the scene when called.
