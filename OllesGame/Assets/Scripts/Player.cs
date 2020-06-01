@@ -20,6 +20,7 @@ namespace Completed
 		public AudioClip drinkSound1;				//1 of 2 Audio clips to play when player collects a soda object.
 		public AudioClip drinkSound2;				//2 of 2 Audio clips to play when player collects a soda object.
 		public AudioClip gameOverSound;				//Audio clip to play when player dies.
+        public Transform sparkle;
 		
 		private Animator animator;					//Used to store a reference to the Player's animator component.
 		private int food;                           //Used to store player food points total during level.
@@ -42,6 +43,8 @@ namespace Completed
 			
 			//Call the Start function of the MovingObject base class.
 			base.Start ();
+
+            sparkle.GetComponent<ParticleSystem>().enableEmission = false;
 		}
 		
 		
@@ -216,8 +219,17 @@ namespace Completed
 				//Disable the soda object the player collided with.
 				other.gameObject.SetActive (false);
 			}
-		}
+
+            sparkle.GetComponent<ParticleSystem>().enableEmission = true;
+            StartCoroutine(stopSparkles());
+        }
 		
+        IEnumerator stopSparkles()
+
+        {
+            yield return new WaitForSeconds(.4f);
+            sparkle.GetComponent<ParticleSystem>().enableEmission = false;
+        }
 		
 		//Restart reloads the scene when called.
 		private void Restart ()
