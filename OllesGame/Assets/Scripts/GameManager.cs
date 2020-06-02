@@ -149,10 +149,12 @@ namespace Completed
 			
 			//Disable this GameManager.
 			enabled = false;
-		}
-		
-		//Coroutine to move enemies in sequence.
-		IEnumerator MoveEnemies()
+
+        }
+
+
+        //Coroutine to move enemies in sequence.
+        IEnumerator MoveEnemies()
 		{
 			//While enemiesMoving is true player is unable to move.
 			enemiesMoving = true;
