@@ -10,6 +10,4 @@ public class Exit : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-
-
 }
