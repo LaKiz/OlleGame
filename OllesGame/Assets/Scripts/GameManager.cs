@@ -149,7 +149,8 @@ namespace Completed
 			
 			//Disable this GameManager.
 			enabled = false;
-		}
+
+        }
 		
 		//Coroutine to move enemies in sequence.
 		IEnumerator MoveEnemies()
