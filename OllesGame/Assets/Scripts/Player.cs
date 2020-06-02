@@ -21,8 +21,8 @@ namespace Completed
 		public AudioClip drinkSound2;				//2 of 2 Audio clips to play when player collects a soda object.
 		public AudioClip gameOverSound;				//Audio clip to play when player dies.
         public Transform sparkle;
-		
-		private Animator animator;					//Used to store a reference to the Player's animator component.
+
+        private Animator animator;					//Used to store a reference to the Player's animator component.
 		private int food;                           //Used to store player food points total during level.
 #if UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
         private Vector2 touchOrigin = -Vector2.one;	//Used to store location of screen touch origin for mobile controls.
@@ -274,6 +274,10 @@ namespace Completed
 				GameManager.instance.GameOver ();
 			}
 		}
-	}
+        void FlipHorizontal()
+        {
+            animator.transform.Rotate(new Vector3(0, 180, 0));
+        }
+    }
 }
 
